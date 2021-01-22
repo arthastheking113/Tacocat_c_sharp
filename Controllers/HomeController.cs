@@ -41,28 +41,36 @@ namespace Tacocat_c_sharp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(Palindrome input)
-        {
-            string inputWord = input.Inputword.ToLower();
-            inputWord = inputWord.Replace(" ", "");
-            string revWord;
-            char[] charArray = inputWord.ToCharArray();
-            Array.Reverse(charArray);
-            revWord = new string(charArray);
-
-            if (revWord == inputWord)
+        {   
+            if (input.Inputword == null)
             {
-                
-                input.Isclear = true;
-                input.IsPalindrome = true;
-                input.Message = $"Success {input.Inputword} is a Palindrome!";
-            } else
-            {
-                
-                input.Isclear = true;
-                input.Message = $"Sorry {input.Inputword} is NOT a Palindrome!";
+                input.Message = "Result";
+                return View(input);
             }
+            else
+            { 
+                string inputWord = input.Inputword.ToLower();
+                inputWord = inputWord.Replace(" ", "");
+                string revWord;
+                char[] charArray = inputWord.ToCharArray();
+                Array.Reverse(charArray);
+                revWord = new string(charArray);
 
-            return View(input);
+                if (revWord == inputWord)
+                {
+                
+                    input.Isclear = true;
+                    input.IsPalindrome = true;
+                    input.Message = $"Success {input.Inputword} is a Palindrome!";
+                } else
+                {
+                
+                    input.Isclear = true;
+                    input.Message = $"Sorry {input.Inputword} is NOT a Palindrome!";
+                }
+
+                return View(input);
+            }
         }
 
         public IActionResult Privacy()

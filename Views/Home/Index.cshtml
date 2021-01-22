@@ -10,7 +10,7 @@
 
         <div class="input-group mb-3">
 
-            <input id="word" asp-for="Inputword" class="form-control" placeholder="Enter Any Words" />
+            <input asp-for="Inputword" class="form-control" placeholder="Enter Any Words" />
             <input id="mirror" type="text" class="form-control" placeholder="Mirror" readonly>
             <span asp-validation-for="Inputword" class="text-danger"></span>
         </div>
@@ -19,13 +19,12 @@
     <div class="row text-center">
         <div class="col text-center">
             <button type="submit" class="button button-a">Check Palindrome</button>
-            <a id="clearword"  class="button button-a">Clear</a>
-            <a asp-controller="Home" asp-action="Index"><button type="button" class="button button-a">Reset</button></a>
+            <button type="button" id="clearword"  class="button button-a">Clear</button>
         </div>
     </div>
     <br />
     <div class="row">
-        <input class="form-control" readonly placeholder="@Model.Message">
+        <input id="result" class="form-control" readonly placeholder="@Model.Message">
     </div>
 </form>
             

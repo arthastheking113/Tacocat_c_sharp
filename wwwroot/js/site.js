@@ -19,7 +19,7 @@ function clearword(){
 let reversedString = []; // Have somewhere to store keypresses
 
 // Get the input box and add an event listener
-document.getElementById("word").addEventListener("keydown", (event) => {
+document.getElementById("Inputword").addEventListener("keydown", (event) => {
   if (
     event.key !== "Backspace" &&
     event.key !== "Enter" &&
@@ -48,12 +48,12 @@ document.getElementById("word").addEventListener("keydown", (event) => {
     document.getElementById("mirror").placeholder = reversedString.join("");
   }
   // REFACTOR THIS SO THAT WE GET OUR MIRROR FROM OUR INPUT BOX AND NOT THE KEYS
-  document.getElementById("clearword").addEventListener("click", (event) => {
-      reversedString = []
-      document.getElementById("word").value = "";
-      document.getElementById("mirror").placeholder = "Mirror";
-      document.getElementById("mirror").value = "";
-      document.getElementById("result").placeholder = "Result";
-  })
-  
+ 
 });
+document.getElementById("clearword").addEventListener("click", (event) => {
+    reversedString = []
+    document.getElementById("Inputword").value = "";
+    document.getElementById("mirror").placeholder = "Mirror";
+    document.getElementById("mirror").value = "";
+    document.getElementById("result").placeholder = "Result";
+})
